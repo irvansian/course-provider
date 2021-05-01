@@ -1,4 +1,4 @@
-package com.example.eduneira.serverapp;
+package com.eduneira.serverapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
