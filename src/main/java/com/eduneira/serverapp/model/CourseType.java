@@ -1,6 +1,6 @@
 package com.eduneira.serverapp.model;
 
-public enum PilihanKelas {
+public enum CourseType {
 	PRIVAT,
 	REGULER
 }

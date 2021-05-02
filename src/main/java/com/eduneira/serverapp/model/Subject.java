@@ -1,6 +1,6 @@
 package com.eduneira.serverapp.model;
 
-public enum MataPelajaran {
+public enum Subject {
 	MATEMATIKA,
 	FISIKA,
 	KIMIA, 
