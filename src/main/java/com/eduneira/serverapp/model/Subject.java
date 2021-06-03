@@ -1,8 +1,12 @@
 package com.eduneira.serverapp.model;
 
 public enum Subject {
-	MATEMATIKA,
-	FISIKA,
-	KIMIA, 
-	BIOLOGI	
+	MATHEMATICS,
+	PHYSIC,
+	CHEMISTRY, 
+	BIOLOGY,
+	HISTORY,
+	SOSIOLOGY,
+	ECONOMY,
+	GEOGRAPHY
 }
