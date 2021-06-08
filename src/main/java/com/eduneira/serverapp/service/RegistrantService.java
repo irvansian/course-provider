@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eduneira.serverapp.model.Registrant;
-import com.eduneira.serverapp.repository.IRegistrantRepository;
+import com.eduneira.serverapp.repository.RegistrantRepository;
 
 @Service
 public class RegistrantService {
 	
 	@Autowired
-	private IRegistrantRepository registrantRepo;
+	private RegistrantRepository registrantRepo;
 
 	public List<Registrant> getAllRegistrants() {
 		List<Registrant> registrants = new ArrayList<Registrant>();
