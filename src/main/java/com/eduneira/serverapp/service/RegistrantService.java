@@ -32,5 +32,6 @@ public class RegistrantService {
 	public void deleteRegistrant(String id) {
 		registrantRepo.deleteById(id);
 	}
+	
 
 }

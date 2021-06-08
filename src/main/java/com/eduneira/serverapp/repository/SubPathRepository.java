@@ -8,4 +8,5 @@ import com.eduneira.serverapp.model.exercises.SubPath;
 @Repository
 public interface SubPathRepository extends JpaRepository<SubPath, String>{
 	
+	
 }
