@@ -1,46 +1,55 @@
 package com.eduneira.serverapp.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
+import com.eduneira.serverapp.model.audit.DateAudit;
+import com.eduneira.serverapp.model.role.Role;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NaturalId;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Entity
 @Data
-@MappedSuperclass
-public abstract class User {
+@NoArgsConstructor
+@Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }),
+		@UniqueConstraint(columnNames = { "email" }) })
+public abstract class User extends DateAudit {
+
 	@Id
-	@Column(updatable = false, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private String id;
+
+	@NotBlank
+	@Column(name = "username")
+	@Size(max = 15)
 	private String username;
+
+	@Column(name = "fullname")
+	@Size(max = 40)
 	private String fullname;
-	private ArrayList<String> groupList;
-//	public String getId() {
-//		return id;
-//	}
-//	public void setId(String id) {
-//		this.id = id;
-//	}
-//	public String getUsername() {
-//		return username;
-//	}
-//	public void setUsername(String username) {
-//		this.username = username;
-//	}
-//	public String getFullname() {
-//		return fullname;
-//	}
-//	public void setFullname(String fullname) {
-//		this.fullname = fullname;
-//	}
-//	
-//	public ArrayList<String> getGroupList() {
-//		return groupList;
-//	}
-//	public void setGroupList(ArrayList<String> groupList) {
-//		this.groupList = groupList;
-//	}
-	
+
+	@NotBlank
+	@NaturalId
+	@Size(max = 40)
+	@Column(name = "email")
+	@Email
+	private String email;
+
+	@NotBlank
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@Size(max = 100)
+	@Column(name = "password")
+	private String password;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+	private List<Role> roles;
 }

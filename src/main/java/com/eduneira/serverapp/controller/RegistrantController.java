@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eduneira.serverapp.model.Registrant;
-import com.eduneira.serverapp.service.RegistrantService;
+import com.eduneira.serverapp.service.impl.RegistrantService;
 
 @RestController("registrants")
 public class RegistrantController {

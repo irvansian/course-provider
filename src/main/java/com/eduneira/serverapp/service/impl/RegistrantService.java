@@ -1,4 +1,4 @@
-package com.eduneira.serverapp.service;
+package com.eduneira.serverapp.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
